@@ -1,546 +1,757 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charafeddine Belyazid - Resume / CV</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charafeddine Belyazid — System / DevOps / Cloud Engineer</title>
     <style>
-        /* Apply Inter font globally */
+      :root {
+        --bg: #0f1115;
+        --panel: #151821;
+        --ink: #1a1d24;
+        --muted: #6b7280;
+        --line: #e6e8ec;
+        --accent: #2dd4bf;
+        --accent-deep: #0d9488;
+        --text: #2b2f38;
+        --heading: #11141a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        background: #e9ebef;
+        color: var(--text);
+        line-height: 1.5;
+        font-size: 14px;
+        padding: 32px 16px;
+      }
+
+      .mono {
+        font-family:
+          "SF Mono", "JetBrains Mono", "Fira Code", ui-monospace, Menlo,
+          Consolas, monospace;
+      }
+
+      .page {
+        max-width: 880px;
+        margin: 0 auto;
+        background: #fff;
+        display: grid;
+        grid-template-columns: 290px 1fr;
+        box-shadow: 0 24px 60px rgba(15, 17, 21, 0.18);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      /* ---------- Sidebar ---------- */
+      .sidebar {
+        background: linear-gradient(165deg, #11141a 0%, #1b2030 100%);
+        color: #cdd3df;
+        padding: 38px 26px;
+      }
+
+      .avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+        color: #04231f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 24px;
+        letter-spacing: 1px;
+        margin-bottom: 18px;
+      }
+
+      .name {
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.2;
+      }
+
+      .role {
+        margin-top: 6px;
+        font-size: 12.5px;
+        color: var(--accent);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .sidebar h2 {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #8b93a3;
+        margin: 30px 0 12px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .contact a,
+      .contact span {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: #cdd3df;
+        text-decoration: none;
+        font-size: 12.5px;
+        margin-bottom: 9px;
+        word-break: break-word;
+      }
+      .contact a:hover {
+        color: var(--accent);
+      }
+      .dot {
+        color: var(--accent);
+        flex-shrink: 0;
+      }
+
+      .skill-group {
+        margin-bottom: 16px;
+      }
+      .skill-group .label {
+        font-size: 11px;
+        font-weight: 700;
+        color: #eef1f6;
+        margin-bottom: 7px;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .chip {
+        font-size: 10.5px;
+        padding: 3px 8px;
+        border-radius: 6px;
+        background: rgba(45, 212, 191, 0.1);
+        border: 1px solid rgba(45, 212, 191, 0.22);
+        color: #a7f3e9;
+        white-space: nowrap;
+      }
+
+      /* ---------- Main ---------- */
+      .main {
+        padding: 40px 38px;
+      }
+
+      .summary {
+        font-size: 13.5px;
+        color: #444a55;
+        border-left: 3px solid var(--accent);
+        padding-left: 16px;
+        margin-bottom: 30px;
+      }
+
+      .section {
+        margin-bottom: 28px;
+      }
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--heading);
+        margin-bottom: 18px;
+      }
+      .section-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+      }
+      .section-title .num {
+        font-size: 11px;
+        color: var(--accent-deep);
+        font-weight: 700;
+      }
+
+      .job {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 20px;
+      }
+      .job::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.18);
+      }
+      .job::after {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 18px;
+        bottom: -16px;
+        width: 1px;
+        background: var(--line);
+      }
+      .job:last-child::after {
+        display: none;
+      }
+
+      .job-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .job-title {
+        font-size: 14.5px;
+        font-weight: 700;
+        color: var(--heading);
+      }
+      .job-company {
+        color: var(--accent-deep);
+        font-weight: 600;
+      }
+      .job-date {
+        font-size: 11px;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+      .job-meta {
+        font-size: 11.5px;
+        color: var(--muted);
+        margin: 1px 0 8px;
+      }
+
+      .job ul {
+        list-style: none;
+      }
+      .job li {
+        position: relative;
+        padding-left: 16px;
+        font-size: 12.8px;
+        color: #4a505b;
+        margin-bottom: 4px;
+      }
+      .job li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--accent-deep);
+        font-size: 11px;
+      }
+
+      .edu-item {
+        margin-bottom: 13px;
+      }
+      .edu-item .school {
+        font-weight: 700;
+        color: var(--heading);
+        font-size: 13.5px;
+      }
+      .edu-item .detail {
+        font-size: 12.3px;
+        color: #545a66;
+      }
+
+      .certs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+      .cert {
+        font-size: 11.5px;
+        padding: 5px 11px;
+        border-radius: 7px;
+        background: #f3f5f8;
+        border: 1px solid var(--line);
+        color: #3b414c;
+      }
+
+      /* ---------- Print ---------- */
+      @media print {
         body {
-            font-family: 'Inter', sans-serif;
+          background: #fff;
+          padding: 0;
+          font-size: 11.5px;
         }
-        /* Simple transition for language switch */
-        .resume-section {
-            transition: opacity 0.3s ease-in-out;
+        .page {
+          box-shadow: none;
+          border-radius: 0;
+          max-width: 100%;
         }
-        /* Hide sections by default */
-        .hidden-lang {
-            display: none;
-            opacity: 0;
+        @page {
+          margin: 0;
         }
-        .visible-lang {
-            display: block;
-            opacity: 1;
-        }
-        /* Style for skills tags */
-        .skill-tag {
-            display: inline-block;
-            background-color: #e0f2fe; /* Tailwind sky-100 */
-            color: #0c4a6e; /* Tailwind sky-800 */
-            padding: 0.25rem 0.75rem;
-            margin: 0.25rem;
-            border-radius: 9999px; /* Tailwind rounded-full */
-            font-size: 0.875rem; /* Tailwind text-sm */
-            font-weight: 500; /* Tailwind font-medium */
-        }
-         /* Style for section titles */
-        .section-title {
-            border-bottom: 2px solid #3b82f6; /* Tailwind blue-500 */
-            padding-bottom: 0.5rem; /* Tailwind pb-2 */
-            margin-bottom: 1rem; /* Tailwind mb-4 */
-            font-size: 1.25rem; /* Tailwind text-xl */
-            font-weight: 600; /* Tailwind font-semibold */
-            color: #1e3a8a; /* Tailwind blue-900 */
-        }
-        /* Ensure icons are vertically aligned */
-        .contact-icon {
-             display: inline-block;
-             vertical-align: middle;
-             margin-right: 0.5rem; /* Tailwind mr-2 */
-             width: 1.25rem; /* Tailwind w-5 */
-             height: 1.25rem; /* Tailwind h-5 */
-             fill: currentColor; /* Use text color for icon */
-        }
-        /* Add spacing for certification links */
-        .certification-item a {
-            margin-left: 0.5rem;
-            color: #2563eb; /* Tailwind blue-600 */
-            text-decoration: underline;
-        }
-        .certification-item a:hover {
-             color: #1d4ed8; /* Tailwind blue-800 */
-        }
+      }
 
-        /* Styles for printing - Hide elements not needed in print */
-        @media print {
-            .print-instruction,
-            #lang-en-btn,
-            #lang-fr-btn {
-                display: none;
-            }
-            /* Adjust padding/margin for print if necessary */
-            body {
-                padding: 0 !important;
-                margin: 0 !important;
-                background-color: #fff; /* Ensure white background for print */
-            }
-            .container {
-                box-shadow: none !important;
-                padding: 0 !important;
-                margin: 0 auto !important;
-                max-width: 100% !important;
-            }
-            header {
-                padding-top: 1rem !important;
-                padding-bottom: 1rem !important;
-            }
-            main {
-                padding: 1rem !important;
-            }
-            section {
-                 margin-bottom: 1rem !important; /* Reduce space between sections */
-            }
-             .section-title {
-                 margin-bottom: 0.5rem !important; /* Reduce space after titles */
-             }
-             .space-y-6 > article,
-             .space-y-4 > article {
-                 margin-bottom: 0.75rem !important; /* Reduce space between experience/education items */
-             }
-             .certification-item {
-                 margin-bottom: 0.25rem !important; /* Reduce space between cert items */
-             }
+      @media (max-width: 720px) {
+        .page {
+          grid-template-columns: 1fr;
         }
+        .main {
+          padding: 28px 22px;
+        }
+      }
     </style>
-</head>
-<body class="bg-gray-100 p-4 md:p-8">
-    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden container">
-        <header class="bg-gradient-to-r from-blue-700 to-blue-900 text-white p-6 md:p-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div>
-                    <h1 class="text-3xl md:text-4xl font-bold">Charafeddine Belyazid</h1>
-                    <p class="text-lg md:text-xl text-blue-200 mt-1">System Engineer | Devops | Cloud</p>
-                </div>
-                <div class="mt-4 md:mt-0">
-                    <button id="lang-en-btn" class="bg-white text-blue-800 font-semibold py-2 px-4 rounded-l-lg focus:outline-none transition duration-300 ease-in-out opacity-100">English</button>
-                    <button id="lang-fr-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-r-lg focus:outline-none transition duration-300 ease-in-out opacity-75">Français</button>
-                </div>
+  </head>
+  <body>
+    <div class="page">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="avatar">CB</div>
+        <div class="name">Charafeddine<br />Belyazid</div>
+        <div class="role mono">System · DevOps · Cloud</div>
+
+        <h2>Contact</h2>
+        <div class="contact">
+          <a href="mailto:belyazid7@gmail.com"
+            ><span class="dot">✉</span> belyazid7@gmail.com</a
+          >
+          <a href="tel:+212665688044"
+            ><span class="dot">☎</span> +212 6 65 68 80 44</a
+          >
+          <span><span class="dot">⌖</span> Casablanca-Settat, Morocco</span>
+          <a href="https://www.linkedin.com/in/charafeddine-belyazid-a15b78100/"
+            ><span class="dot">in</span>
+            linkedin.com/in/charafeddine-belyazid-a15b78100</a
+          >
+          <a href="https://github.com/Charafeddine-B/"
+            ><span class="dot">❯</span> github.com/Charafeddine-B</a
+          >
+        </div>
+
+        <h2>Core Stack</h2>
+        <div class="skill-group">
+          <div class="label">Cloud &amp; Virtualization</div>
+          <div class="chips">
+            <span class="chip">GCP</span><span class="chip">Azure</span
+            ><span class="chip">AWS</span> <span class="chip">OpenStack</span
+            ><span class="chip">OVH</span><span class="chip">VMware</span>
+            <span class="chip">LXC/LXD</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="label">DevOps &amp; CI/CD</div>
+          <div class="chips">
+            <span class="chip">Docker</span><span class="chip">Kubernetes</span
+            ><span class="chip">Terraform</span>
+            <span class="chip">Ansible</span><span class="chip">Jenkins</span
+            ><span class="chip">GitLab CI</span>
+            <span class="chip">Git</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="label">Microservices</div>
+          <div class="chips">
+            <span class="chip">Spring Boot</span><span class="chip">Kafka</span
+            ><span class="chip">RabbitMQ</span> <span class="chip">Consul</span
+            ><span class="chip">Eureka</span><span class="chip">Vault</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="label">Node.js &amp; Frontend</div>
+          <div class="chips">
+            <span class="chip">Node.js</span><span class="chip">Express</span
+            ><span class="chip">Next.js</span> <span class="chip">React</span
+            ><span class="chip">React Native</span
+            ><span class="chip">TypeScript</span>
+            <span class="chip">Tailwind</span><span class="chip">GraphQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="label">Automation &amp; Data</div>
+          <div class="chips">
+            <span class="chip">Apps Script</span
+            ><span class="chip">Jira Automation</span>
+            <span class="chip">ETL</span><span class="chip">MCP</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="label">Observability</div>
+          <div class="chips">
+            <span class="chip">Prometheus</span
+            ><span class="chip">Grafana</span> <span class="chip">Zabbix</span
+            ><span class="chip">ELK</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="label">Networking &amp; Security</div>
+          <div class="chips">
+            <span class="chip">TCP/IP</span><span class="chip">VPN</span
+            ><span class="chip">pfSense</span> <span class="chip">Fortinet</span
+            ><span class="chip">Cisco IOS</span><span class="chip">SSH</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="label">Systems &amp; Databases</div>
+          <div class="chips">
+            <span class="chip">Linux</span
+            ><span class="chip">Windows Server</span
+            ><span class="chip">Active Directory</span>
+            <span class="chip">MySQL</span><span class="chip">MongoDB</span
+            ><span class="chip">SQL Server</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="label">Languages</div>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">Go</span
+            ><span class="chip">Java</span> <span class="chip">Bash</span
+            ><span class="chip">JS/TS</span><span class="chip">SQL</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="main">
+        <p class="summary">
+          System / DevOps engineer with 8+ years across systems &amp; network
+          administration, infrastructure automation, CI/CD, and multi-cloud
+          operations. Currently building automation, ETL pipelines, and internal
+          AI tooling (MCP) at Al Jazeera Media Network — comfortable from
+          Linux/Kubernetes infrastructure up to full-stack application
+          development.
+        </p>
+
+        <!-- Experience -->
+        <section class="section">
+          <div class="section-title">
+            <span class="num">01</span> Experience
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <span class="job-title">Senior Service Engineer</span> ·
+                <span class="job-company">Al Jazeera Media Network</span>
+              </div>
+              <div class="job-date">Dec 2024 – Present</div>
             </div>
-            <div class="mt-6 text-sm md:text-base text-blue-100 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-2">
-                <div class="flex items-center">
-                     <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                    </svg>
-                    <span>Beni Mellal, Morocco</span>
-                </div>
-                <div class="flex items-center">
-                     <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                    <a href="mailto:belyazid7@gmail.com" class="hover:text-white">belyazid7@gmail.com</a>
-                </div>
-                <div class="flex items-center col-span-1 sm:col-span-2 md:col-span-2">
-                      <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    <a href="https://www.linkedin.com/in/charafeddine-belyazid-a15b78100/" target="_blank" rel="noopener noreferrer" class="hover:text-white">linkedin.com/in/charafeddine-belyazid-a15b78100</a>
-                </div>
+            <div class="job-meta">Full-time</div>
+            <ul>
+              <li>
+                Build automation workflows with Google Apps Script and Jira
+                automation to streamline internal operations.
+              </li>
+              <li>
+                Design and operate ETL pipelines for data ingestion and
+                processing.
+              </li>
+              <li>Deploy and manage workloads across GCP, Azure, and AWS.</li>
+              <li>
+                Develop MCP (Model Context Protocol) servers and internal AI /
+                automation tooling.
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <span class="job-title">System Engineer / DevOps Engineer</span>
+                · <span class="job-company">Centoria Services</span>
+              </div>
+              <div class="job-date">Sep 2024 – Dec 2024</div>
             </div>
-        </header>
+            <div class="job-meta">Full-time · Casablanca-Settat · On-site</div>
+            <ul>
+              <li>
+                DevOps and platform engineering across the Centoria
+                infrastructure stack (OpenStack, Docker).
+              </li>
+            </ul>
+          </div>
 
-        <main class="p-6 md:p-8 space-y-8">
-            <div class="print-instruction bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6 rounded" role="alert">
-                <p class="font-bold">To save as PDF:</p>
-                <p>Use your browser's print function (usually Ctrl+P or Cmd+P) and select "Save as PDF" or "Microsoft Print to PDF" as the destination printer. This will save the content in the currently selected language.</p>
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <span class="job-title">System Administrator &amp; DevOps</span>
+                · <span class="job-company">Centoria Services</span>
+              </div>
+              <div class="job-date">Mar 2024 – Aug 2024</div>
             </div>
+            <div class="job-meta">Full-time · Casablanca-Settat · On-site</div>
+            <ul>
+              <li>
+                Automated infrastructure with Ansible, Terraform, GitLab CI/CD,
+                Kubernetes, and LXC/LXD.
+              </li>
+              <li>
+                Implemented monitoring with Prometheus, Grafana, Zabbix, and the
+                Elastic Stack (ELK).
+              </li>
+              <li>
+                Managed networking &amp; security (pfSense, VPN, SSH) and
+                OVH-hosted resources.
+              </li>
+            </ul>
+          </div>
 
-            <div id="resume-en" class="resume-section visible-lang space-y-8">
-                <section>
-                    <h2 class="section-title">🇬🇧 Professional Summary</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        Passionate about technology, I love exploring how systems work, solving complex problems, and building efficient solutions. Whether it’s coding, automating processes, or optimizing infrastructure, I thrive on learning and pushing boundaries. Always curious, always evolving. 🚀
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="section-title">🔧 Skills</h2>
-                    <div class="flex flex-wrap">
-                        <span class="skill-tag">Engineering</span>
-                        <span class="skill-tag">OpenStack</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">LXC/LXD</span>
-                        <span class="skill-tag">Ansible</span>
-                        <span class="skill-tag">Gitlab</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Prometheus</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Grafana</span>
-                        <span class="skill-tag">Elastic Stack (ELK)</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">Zabbix</span>
-                        <span class="skill-tag">pfSense</span>
-                        <span class="skill-tag">TCP/IP</span>
-                        <span class="skill-tag">VPN</span>
-                        <span class="skill-tag">GraphQL</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">Amazon S3</span>
-                        <span class="skill-tag">QR</span>
-                        <span class="skill-tag">Bash</span>
-                        <span class="skill-tag">Secure Shell (SSH)</span>
-                        <span class="skill-tag">Microsoft Exchange</span>
-                        <span class="skill-tag">Spring Data</span>
-                        <span class="skill-tag">Ovh</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Go (Programming Language)</span>
-                        <span class="skill-tag">Storage Area Network (SAN)</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Amazon Web Services (AWS)</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Postfix</span>
-                        <span class="skill-tag">RESTful WebServices</span>
-                        <span class="skill-tag">Vagrant (Software)</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Apache Spark</span>
-                        <span class="skill-tag">Spring Framework</span>
-                        <span class="skill-tag">Spring Boot</span>
-                        <span class="skill-tag">Spring Security</span>
-                        <span class="skill-tag">Amazon Dynamodb</span>
-                        <span class="skill-tag">Continuous Integration and Continuous Delivery (CI/CD)</span>
-                        <span class="skill-tag">Github Actions/GitlabCi/CircleCI/Jenkins</span>
-                        <span class="skill-tag">Cassandra</span>
-                        <span class="skill-tag">Maven</span>
-                        <span class="skill-tag">Azure</span>
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">Helm</span>
-                        <span class="skill-tag">ArgoCD</span>
-                        <span class="skill-tag">PowerShell</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Windows Server</span>
-                        <span class="skill-tag">Active Directory</span>
-                        <span class="skill-tag">Microsoft BizTalk Server (Basic)</span>
-                        <span class="skill-tag">RDS/VPN's..</span>
-                        <span class="skill-tag">VMware</span>
-                        <span class="skill-tag">Proxmox</span>
-                        <span class="skill-tag">Hyper-V</span>
-                        <span class="skill-tag">IAM</span>
-                        <span class="skill-tag">Key Vaults</span>
-                        <span class="skill-tag">Firewalls</span>
-                        <span class="skill-tag">SSL</span>
-                        <span class="skill-tag">Auth: SAML/OpenID/Oauth/</span>
-                        <span class="skill-tag">SOAP/REST Graphql/GRPC</span>
-                    </div>
-                </section>
-
-                <section>
-                    <h2 class="section-title">💼 Professional Experience</h2>
-                    <div class="space-y-6">
-                        <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Al Jazeera Media Network</h3>
-                            <p class="text-md font-medium text-blue-600">Senior Service Engineer</p>
-                            <p class="text-sm text-gray-500 mb-2">Dec 2024 – Present</p>
-                         </article>
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Centoria Services Centoria IT – Casablanca-Settat, Morocco</h3>
-                            <p class="text-md font-medium text-blue-600">System engineer / Devops engineer</p>
-                             <p class="text-sm text-gray-500 mb-2">Oct 2024 – Dec 2024</p>
-                             </article>
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Centoria Services – Casablanca-Settat, Morocco</h3>
-                            <p class="text-md font-medium text-blue-600">System Administrator & Devops Intern</p>
-                             <p class="text-sm text-gray-500 mb-2">Apr 2024 – Aug 2024</p>
-                             </article>
-                        <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Articode – Casablanca, Morocco</h3>
-                            <p class="text-md font-medium text-blue-600">Software Engineer</p>
-                             <p class="text-sm text-gray-500 mb-2">Jul 2023 – Aug 2023</p>
-                             </article>
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">6solutions – Casablanca Metropolitan Area</h3>
-                            <p class="text-md font-medium text-blue-600">Full-stack Developer</p>
-                             <p class="text-sm text-gray-500 mb-2">Jul 2022 – Aug 2022</p>
-                             </article>
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Self-Employed</h3>
-                            <p class="text-md font-medium text-blue-600">Email Marketing Specialist</p>
-                             <p class="text-sm text-gray-500 mb-2">Aug 2019 – Jun 2021</p>
-                             </article>
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Arocom – Casablanca-Settat, Morocco</h3>
-                            <p class="text-md font-medium text-blue-600">System and Network Technician</p>
-                             <p class="text-sm text-gray-500 mb-2">Jul 2017 – Jul 2019</p>
-                             </article>
-                    </div>
-                </section>
-
-                <section>
-                    <h2 class="section-title">🎓 Education</h2>
-                     <div class="space-y-4">
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Master (MBDS) - Mobiquité, Big Data Et Intégration De Systèmes</h3>
-                            <p class="text-md text-gray-600">Université Côte d'Azur</p>
-                            <p class="text-sm text-gray-500">Completed Sep 2024</p>
-                        </article>
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Software Engineering Degree - Computer Science and Software Engineering</h3>
-                            <p class="text-md text-gray-600">Ecole Marocaine des Sciences de l'ingénieur</p>
-                            <p class="text-sm text-gray-500">Sep 2021 – Sep 2024</p>
-                        </article>
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Technicien spécialisé en développement informatique</h3>
-                            <p class="text-md text-gray-600">Specialized Institute Of Applied Technology NTIC</p>
-                            <p class="text-sm text-gray-500">Sep 2015 – Jun 2017</p>
-                        </article>
-                        </div>
-                </section>
-
-                <section>
-                    <h2 class="section-title">🏅 Certifications</h2>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
-                        <li class="certification-item">DevOps, Cloud, and Agile Foundations (IBM, Apr 2023) <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/D5JNK6R3VANQ" target="_blank" rel="noopener noreferrer">View</a></li>
-                        <li class="certification-item">Advanced React (Meta, Feb 2023) <a href="https://www.coursera.org/account/accomplishments/certificate/CVYCNYATME9B" target="_blank" rel="noopener noreferrer">View</a></li>
-                        <li class="certification-item">Developing Back-End Apps with Node.js and Express (IBM, Feb 2023) <a href="https://coursera.org/share/98f3024ca1604834aa5230bdb3ae871d" target="_blank" rel="noopener noreferrer">View</a></li>
-                        <li class="certification-item">Continuous Delivery & DevOps (University of Virginia, Jan 2023) <a href="https://www.coursera.org/account/accomplishments/certificate/WK873CFDXS2M" target="_blank" rel="noopener noreferrer">View</a></li>
-                        <li class="certification-item">Front-End Web Development with React (HKUST, Jan 2023) <a href="https://www.coursera.org/account/accomplishments/certificate/BY7ZFB5599GC" target="_blank" rel="noopener noreferrer">View</a></li>
-                        <li class="certification-item">Front-End Web UI Frameworks and Tools (HKUST, Dec 2022) <a href="https://www.coursera.org/account/accomplishments/certificate/PDP4WSS3CV9H" target="_blank" rel="noopener noreferrer">View</a></li>
-                        <li class="certification-item">Android App Development (Vanderbilt University, Apr 2022) <a href="https://coursera.org/share/3a2dcaa737596e9be107c9016e53a87c" target="_blank" rel="noopener noreferrer">View</a></li>
-                        <li class="certification-item">Python Functions, Files, and Dictionaries (University of Michigan, Apr 2022) <a href="https://www.coursera.org/account/accomplishments/certificate/QX8ZHJSBJPEA" target="_blank" rel="noopener noreferrer">View</a></li>
-                    </ul>
-                </section>
-
-                 <section>
-                    <h2 class="section-title">🌐 Languages</h2>
-                     <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
-                        <li>English – Fluent</li>
-                        <li>French – Intermediate</li>
-                        <li>Arabic – Native</li>
-                    </ul>
-                </section>
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <span class="job-title">Software Engineer</span> ·
+                <span class="job-company">Articode</span>
+              </div>
+              <div class="job-date">Jun 2023 – Aug 2023</div>
             </div>
+            <div class="job-meta">Remote · Casablanca-Settat</div>
+            <ul>
+              <li>
+                Full-stack development with React.js, Node.js, TypeScript, and
+                GraphQL.
+              </li>
+              <li>
+                Built AR/QR features (Ar.js) backed by MongoDB and Amazon S3.
+              </li>
+            </ul>
+          </div>
 
-            <div id="resume-fr" class="resume-section hidden-lang space-y-8">
-                 <section>
-                    <h2 class="section-title">🇫🇷 Résumé professionnel</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        Passionné par la technologie, j'aime explorer le fonctionnement des systèmes, résoudre des problèmes complexes et construire des solutions efficaces. Qu'il s'agisse de coder, d'automatiser des processus ou d'optimiser des infrastructures, je m'épanouis dans l'apprentissage et le dépassement des limites. Toujours curieux, toujours en évolution. 🚀
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="section-title">🔧 Compétences techniques</h2>
-                     <div class="flex flex-wrap">
-                        <span class="skill-tag">Ingénierie</span>
-                        <span class="skill-tag">OpenStack</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">LXC/LXD</span>
-                        <span class="skill-tag">Ansible</span>
-                        <span class="skill-tag">Gitlab</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Prometheus</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Grafana</span>
-                        <span class="skill-tag">Elastic Stack (ELK)</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">Zabbix</span>
-                        <span class="skill-tag">pfSense</span>
-                        <span class="skill-tag">TCP/IP</span>
-                        <span class="skill-tag">VPN</span>
-                        <span class="skill-tag">GraphQL</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">Amazon S3</span>
-                        <span class="skill-tag">QR</span>
-                        <span class="skill-tag">Bash</span>
-                        <span class="skill-tag">Secure Shell (SSH)</span>
-                        <span class="skill-tag">Microsoft Exchange</span>
-                        <span class="skill-tag">Spring Data</span>
-                        <span class="skill-tag">Ovh</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Go (Programming Language)</span>
-                        <span class="skill-tag">Storage Area Network (SAN)</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Amazon Web Services (AWS)</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Postfix</span>
-                        <span class="skill-tag">RESTful WebServices</span>
-                        <span class="skill-tag">Vagrant (Software)</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Apache Spark</span>
-                        <span class="skill-tag">Spring Framework</span>
-                        <span class="skill-tag">Spring Boot</span>
-                        <span class="skill-tag">Spring Security</span>
-                        <span class="skill-tag">Amazon Dynamodb</span>
-                        <span class="skill-tag">Continuous Integration and Continuous Delivery (CI/CD)</span>
-                        <span class="skill-tag">Github Actions/GitlabCi/CircleCI/Jenkins</span>
-                        <span class="skill-tag">Cassandra</span>
-                        <span class="skill-tag">Maven</span>
-                        <span class="skill-tag">Azure</span>
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">Helm</span>
-                        <span class="skill-tag">ArgoCD</span>
-                        <span class="skill-tag">PowerShell</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Windows Server</span>
-                        <span class="skill-tag">Active Directory</span>
-                        <span class="skill-tag">Microsoft BizTalk Server (Basic)</span>
-                        <span class="skill-tag">RDS/VPN's..</span>
-                        <span class="skill-tag">VMware</span>
-                        <span class="skill-tag">Proxmox</span>
-                        <span class="skill-tag">Hyper-V</span>
-                        <span class="skill-tag">IAM</span>
-                        <span class="skill-tag">Key Vaults</span>
-                        <span class="skill-tag">Firewalls</span>
-                        <span class="skill-tag">SSL</span>
-                        <span class="skill-tag">Auth: SAML/OpenID/Oauth/</span>
-                        <span class="skill-tag">SOAP/REST Graphql/GRPC</span>
-                    </div>
-                </section>
-
-                <section>
-                    <h2 class="section-title">💼 Expérience professionnelle</h2>
-                    <div class="space-y-6">
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Al Jazeera Media Network</h3>
-                            <p class="text-md font-medium text-blue-600">Ingénieur de service senior</p>
-                            <p class="text-sm text-gray-500 mb-2">Déc 2024 – Présent</p>
-                        </article>
-                        <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Centoria Services Centoria IT – Casablanca-Settat, Maroc</h3>
-                            <p class="text-md font-medium text-blue-600">Ingénieur système / Ingénieur Devops</p>
-                            <p class="text-sm text-gray-500 mb-2">Oct 2024 – Déc 2024</p>
-                        </article>
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Centoria Services – Casablanca-Settat, Maroc</h3>
-                            <p class="text-md font-medium text-blue-600">Administrateur Système & Stagiaire Devops</p>
-                            <p class="text-sm text-gray-500 mb-2">Avr 2024 – Août 2024</p>
-                        </article>
-                        <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Articode – Casablanca, Maroc</h3>
-                            <p class="text-md font-medium text-blue-600">Ingénieur Logiciel</p>
-                            <p class="text-sm text-gray-500 mb-2">Juil 2023 – Août 2023</p>
-                        </article>
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">6solutions – Région métropolitaine de Casablanca</h3>
-                            <p class="text-md font-medium text-blue-600">Développeur Full-stack</p>
-                            <p class="text-sm text-gray-500 mb-2">Juil 2022 – Août 2022</p>
-                        </article>
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Indépendant</h3>
-                            <p class="text-md font-medium text-blue-600">Spécialiste Email Marketing</p>
-                            <p class="text-sm text-gray-500 mb-2">Août 2019 – Juin 2021</p>
-                        </article>
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Arocom – Casablanca-Settat, Maroc</h3>
-                            <p class="text-md font-medium text-blue-600">Technicien systèmes et réseaux</p>
-                            <p class="text-sm text-gray-500 mb-2">Juil 2017 – Juil 2019</p>
-                        </article>
-                    </div>
-                </section>
-
-                <section>
-                    <h2 class="section-title">🎓 Formation</h2>
-                     <div class="space-y-4">
-                        <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Master (MBDS) - Mobiquité, Big Data Et Intégration De Systèmes</h3>
-                            <p class="text-md text-gray-600">Université Côte d'Azur</p>
-                            <p class="text-sm text-gray-500">Terminé Sept 2024</p>
-                        </article>
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Diplôme d'Ingénieur en Génie Informatique et Logiciel</h3>
-                            <p class="text-md text-gray-600">Ecole Marocaine des Sciences de l'ingénieur</p>
-                            <p class="text-sm text-gray-500">Sept 2021 – Sept 2024</p>
-                        </article>
-                         <article>
-                            <h3 class="text-lg font-semibold text-gray-800">Technicien spécialisé en développement informatique</h3>
-                            <p class="text-md text-gray-600">Institut Spécialisé de Technologie Appliquée NTIC</p>
-                            <p class="text-sm text-gray-500">Sept 2015 – Juin 2017</p>
-                        </article>
-                    </div>
-                </section>
-
-                <section>
-                    <h2 class="section-title">🏅 Certifications</h2>
-                     <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
-                         <li class="certification-item">DevOps, Cloud, and Agile Foundations (IBM, Avr 2023) <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/D5JNK6R3VANQ" target="_blank" rel="noopener noreferrer">Voir</a></li>
-                        <li class="certification-item">Advanced React (Meta, Fév 2023) <a href="https://www.coursera.org/account/accomplishments/certificate/CVYCNYATME9B" target="_blank" rel="noopener noreferrer">Voir</a></li>
-                        <li class="certification-item">Developing Back-End Apps with Node.js and Express (IBM, Fév 2023) <a href="https://coursera.org/share/98f3024ca1604834aa5230bdb3ae871d" target="_blank" rel="noopener noreferrer">Voir</a></li>
-                        <li class="certification-item">Continuous Delivery & DevOps (University of Virginia, Jan 2023) <a href="https://www.coursera.org/account/accomplishments/certificate/WK873CFDXS2M" target="_blank" rel="noopener noreferrer">Voir</a></li>
-                        <li class="certification-item">Front-End Web Development with React (HKUST, Jan 2023) <a href="https://www.coursera.org/account/accomplishments/certificate/BY7ZFB5599GC" target="_blank" rel="noopener noreferrer">Voir</a></li>
-                        <li class="certification-item">Front-End Web UI Frameworks and Tools (HKUST, Déc 2022) <a href="https://www.coursera.org/account/accomplishments/certificate/PDP4WSS3CV9H" target="_blank" rel="noopener noreferrer">Voir</a></li>
-                        <li class="certification-item">Android App Development (Vanderbilt University, Avr 2022) <a href="https://coursera.org/share/3a2dcaa737596e9be107c9016e53a87c" target="_blank" rel="noopener noreferrer">Voir</a></li>
-                        <li class="certification-item">Python Functions, Files, and Dictionaries (University of Michigan, Avr 2022) <a href="https://www.coursera.org/account/accomplishments/certificate/QX8ZHJSBJPEA" target="_blank" rel="noopener noreferrer">Voir</a></li>
-                    </ul>
-                </section>
-
-                 <section>
-                    <h2 class="section-title">🌐 Langues</h2>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1 pl-4">
-                        <li>French – Intermédiaire</li>
-                        <li>English – Courant</li>
-                        <li>Arabic – Langue maternelle</li>
-                    </ul>
-                </section>
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <span class="job-title">Full-stack Developer</span> ·
+                <span class="job-company">6solutions</span>
+              </div>
+              <div class="job-date">Jun 2022 – Aug 2022</div>
             </div>
-        </main>
+            <div class="job-meta">Hybrid · Casablanca</div>
+            <ul>
+              <li>
+                Built Spring Boot apps with Spring Data &amp; Spring Security;
+                RESTful services containerized with Docker.
+              </li>
+            </ul>
+          </div>
 
-        <footer class="text-center p-4 bg-gray-50 border-t border-gray-200 text-sm text-gray-500">
-            Charafeddine Belyazid &copy; <span id="current-year"></span>
-        </footer>
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <span class="job-title">Email Marketing Specialist</span> ·
+                <span class="job-company">Independent</span>
+              </div>
+              <div class="job-date">Jul 2019 – Jun 2021</div>
+            </div>
+            <div class="job-meta">Self-employed</div>
+            <ul>
+              <li>
+                Operated email-sending infrastructure (PowerMTA, Postfix,
+                Sendmail, SMTP) with SPF/DKIM/DMARC.
+              </li>
+              <li>
+                Built campaign tooling with PHP, React.js, and MySQL on AWS.
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <span class="job-title">Technicien Systèmes et Réseaux</span> ·
+                <span class="job-company">Arocom</span>
+              </div>
+              <div class="job-date">Jun 2017 – Jul 2019</div>
+            </div>
+            <div class="job-meta">Full-time · Casablanca-Settat · On-site</div>
+            <ul>
+              <li>
+                Administered Windows Server, Active Directory, WDS, and
+                Microsoft Exchange.
+              </li>
+              <li>
+                Managed VMware ESXi virtualization, Veeam backups, and SAN
+                storage.
+              </li>
+              <li>
+                Handled networking &amp; security (Cisco IOS, Fortinet, TCP/IP,
+                RDP, VNC).
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section">
+          <div class="section-title">
+            <span class="num">02</span> Selected Projects
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <span class="job-title">E-Commerce Microservices Platform</span>
+                · <span class="job-company">Spring Cloud</span>
+              </div>
+              <div class="job-date">github.com/Charafeddine-B</div>
+            </div>
+            <div class="job-meta">
+              Spring Boot · Eureka · Spring Cloud Gateway · Config Server ·
+              Keycloak · Docker
+            </div>
+            <ul>
+              <li>
+                Built a distributed platform of independent services (customer,
+                inventory, billing, order) with an API gateway and centralized
+                config server.
+              </li>
+              <li>
+                Implemented service discovery with Netflix Eureka and secured
+                services with Keycloak (OAuth2 / OIDC).
+              </li>
+              <li>
+                Containerized the stack with Docker Compose; consumed APIs from
+                Angular and Thymeleaf front ends.
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <span class="job-title">Real-Time Stream Processing</span> ·
+                <span class="job-company">Kafka Streams</span>
+              </div>
+            </div>
+            <div class="job-meta">
+              Apache Kafka · Kafka Streams · Spring · Docker
+            </div>
+            <ul>
+              <li>
+                Developed event-driven, real-time analytics pipelines on top of
+                Apache Kafka and the Kafka Streams API.
+              </li>
+              <li>
+                Ran the full Kafka stack locally via Docker Compose for
+                reproducible development.
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <span class="job-title"
+                  >Node.js Backend &amp; Full-Stack JS Apps</span
+                >
+                · <span class="job-company">Node / React / RN</span>
+              </div>
+            </div>
+            <div class="job-meta">
+              Node.js · Express · Next.js · React · React Native (Expo) ·
+              Tailwind
+            </div>
+            <ul>
+              <li>
+                Built REST APIs with Node.js &amp; Express (dotenv config,
+                nodemon, ESLint/Prettier Airbnb style).
+              </li>
+              <li>
+                Shipped a Next.js + Tailwind CSS portfolio and a React + Vite +
+                Chakra UI single-page app.
+              </li>
+              <li>
+                Created a cross-platform React Native (Expo) movie app with
+                React Navigation and Axios-based API integration.
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <span class="job-title"
+                  >Infrastructure &amp; Secrets Automation</span
+                >
+                · <span class="job-company">HashiCorp Stack</span>
+              </div>
+            </div>
+            <div class="job-meta">Terraform · Vault · Consul</div>
+            <ul>
+              <li>
+                Provisioned infrastructure as code with Terraform across cloud
+                and on-prem environments.
+              </li>
+              <li>
+                Managed secrets and dynamic configuration with Vault, and
+                service discovery / KV config with Consul.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+          <div class="section-title"><span class="num">03</span> Education</div>
+          <div class="edu-item">
+            <div class="school">Université Côte d'Azur</div>
+            <div class="detail">
+              Big Data &amp; distributed systems — Apache Spark, Hadoop,
+              Cassandra, HiveQL, DynamoDB.
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="school">
+              Ecole Marocaine des Sciences de l'Ingénieur
+            </div>
+            <div class="detail">
+              Software &amp; DevOps foundations — Java, C++, Git, Continuous
+              Delivery &amp; DevOps.
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="school">
+              Specialized Institute of Applied Technology (NTIC)
+            </div>
+            <div class="detail">
+              .NET stack — C#, ASP.NET MVC, SQL Server, T-SQL, C, web
+              fundamentals.
+            </div>
+          </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="section">
+          <div class="section-title">
+            <span class="num">04</span> Certifications
+          </div>
+          <div class="certs">
+            <span class="cert">DevOps, Cloud &amp; Agile Foundations</span>
+            <span class="cert">Continuous Delivery &amp; DevOps</span>
+            <span class="cert">Front-End Web Dev with React</span>
+            <span class="cert">Advanced React</span>
+            <span class="cert">Back-End with Node.js &amp; Express</span>
+            <span class="cert"
+              >LinkedIn Assessments: React · Node · PHP · Zabbix</span
+            >
+          </div>
+        </section>
+      </main>
     </div>
-
-    <script>
-        // Get current year for footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Language toggle functionality
-        const langEnBtn = document.getElementById('lang-en-btn');
-        const langFrBtn = document.getElementById('lang-fr-btn');
-        const resumeEn = document.getElementById('resume-en');
-        const resumeFr = document.getElementById('resume-fr');
-
-        // Function to switch language visibility and button styles
-        function setLanguage(lang) {
-            if (lang === 'en') {
-                // Show English, hide French
-                resumeEn.classList.remove('hidden-lang');
-                resumeEn.classList.add('visible-lang');
-                resumeFr.classList.add('hidden-lang');
-                resumeFr.classList.remove('visible-lang');
-
-                // Style buttons: English active, French inactive
-                langEnBtn.classList.replace('bg-blue-500', 'bg-white');
-                langEnBtn.classList.replace('text-white', 'text-blue-800');
-                langEnBtn.classList.replace('opacity-75', 'opacity-100');
-                langEnBtn.classList.remove('hover:bg-blue-600'); // Remove hover effect when active
-
-                langFrBtn.classList.replace('bg-white', 'bg-blue-500');
-                langFrBtn.classList.replace('text-blue-800','text-white');
-                langFrBtn.classList.replace('opacity-100', 'opacity-75');
-                langFrBtn.classList.add('hover:bg-blue-600'); // Add hover effect when inactive
-
-            } else if (lang === 'fr') {
-                // Show French, hide English
-                resumeFr.classList.remove('hidden-lang');
-                resumeFr.classList.add('visible-lang');
-                resumeEn.classList.add('hidden-lang');
-                resumeEn.classList.remove('visible-lang');
-
-                 // Style buttons: French active, English inactive
-                langFrBtn.classList.replace('bg-blue-500', 'bg-white');
-                langFrBtn.classList.replace('text-white', 'text-blue-800');
-                langFrBtn.classList.replace('opacity-75', 'opacity-100');
-                langFrBtn.classList.remove('hover:bg-blue-600'); // Remove hover effect when active
-
-                langEnBtn.classList.replace('bg-white', 'bg-blue-500');
-                langEnBtn.classList.replace('text-blue-800','text-white');
-                langEnBtn.classList.replace('opacity-100', 'opacity-75');
-                langEnBtn.classList.add('hover:bg-blue-600'); // Add hover effect when inactive
-            }
-        }
-
-        // Add event listeners to buttons
-        langEnBtn.addEventListener('click', () => setLanguage('en'));
-        langFrBtn.addEventListener('click', () => setLanguage('fr'));
-
-        // Initialize with English as default on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            setLanguage('en');
-        });
-    </script>
-</body>
+  </body>
 </html>
